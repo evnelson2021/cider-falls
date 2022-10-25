@@ -20,11 +20,11 @@ const database = {
         section: "Northwest",
     }, {
         id: 4,
-        title: "Gander River natural preserve",
+        title: "Gander River Preserve",
         section: "Southwest",
     }, {
         id: 5,
-        title: "Campgrounds, Office Park, and Children Play Areas",
+        title: "Campgrounds, Office Park, and Play Areas",
         section: "Southern",
     }, {
         id: 6,
@@ -33,25 +33,25 @@ const database = {
     }],
 
     services: [{
-        id: 1, name: "rafting"
+        id: 1, name: "Rafting"
     }, {
-        id: 2, name: "canoeing"
+        id: 2, name: "Canoeing"
     }, {
-        id: 3, name: "fishing"
+        id: 3, name: "Fishing"
     }, {
-        id: 4, name: "hiking"
+        id: 4, name: "Hiking"
     }, {
-        id: 5, name: "picknicking"
+        id: 5, name: "Picknicking"
     }, {
-        id: 6, name: "rock climbing"
+        id: 6, name: "Rock climbing"
     }, {
-        id: 7, name: "lodging"
+        id: 7, name: "Lodging"
     }, {
-        id: 8, name: "parking"
+        id: 8, name: "Parking"
     }, {
-        id: 9, name: "information"
+        id: 9, name: "Information"
     }, {
-        id: 10, name: "zip lining"
+        id: 10, name: "Zip lining"
     }],
 
     guests: [

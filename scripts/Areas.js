@@ -8,12 +8,14 @@
 // const services = getServices()
 // const areaServices = getAreaServices() 
 
-// export const displayAreas = ()=> {
-//     let areasHTML = ""
+// export const areaList = ()=> {
+//     let areasHTML = "<ol>"
 
 //     for(const area of areas){
-//         areasHTML+= `<div class="area--${area.id}">${area.title}</div>`
+//         areasHTML+= `<li>${area.title}</li>`
 //     }
+
+//         areasHTML += "</ol>"
 
 //     return areasHTML
 // }

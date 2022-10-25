@@ -1,20 +1,28 @@
+body {
+    background-image: url("https://www.publicdomainpictures.net/pictures/140000/nahled/pile-of-autumn-leaves.jpg");
+    background-color: #cccccc;
+  }
+
 .logo{
+    background-color: lightgoldenrodyellow;
+    box-shadow: 4px 4px gray;
     position: relative ;
     float: left;
-    max-width: 120px;
+    max-width: 150px;
     height: auto;
     padding-left: 20px;
 }
 
 .park-name{
     text-align: center;
+    text-shadow: 6px 6px 6px black;
+    color: lightgoldenrodyellow;
     font-size: 100px;
-    color: brown;
 }
 
 .asides{
     display: flex;
-    background-color: lightblue;
+    background-color: darkslategray;
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 20px;
@@ -24,40 +32,45 @@
 
 .left-areas{
     display: flex;
-    background-color: bisque;
-    max-width: 50%;
-    height: auto;
+    flex-wrap: wrap;
+    background-color: tan;
     border: 3px solid black;
+    width: 50%;
+    height: auto;
     padding: 20px;
+    justify-content: space-evenly;
+}
+
+.each-area{
+    justify-content: space-around;
+    color:black;
+    width: 200px;
+    border: 2px dotted black;
+    padding: 30px;
 }
 
 .area-items{
     display: flex;
-    flex-direction: row;
-    /* row-gap: 10px;
-    column-gap: 10px; */
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    align-self: auto;
-    color:blueviolet
 }
 
-/* .area-items>* {
-    flex: 1 1 160px;
-} */
-
 .right-guests{
-    display: flex;
-    background-color: grey;
-    max-width: 50%;
-    height: auto;
+    /* display: flex; */
+    background-color: tan;
     border: 3px solid black;
-    padding: 20px;
+    width: 200px;
+    height: auto;
+    
+    padding: 40px;
 }
 
 .bottom-info{
     text-align: center;
     font-size: 20px;
     background-color: lightgrey;
+}
+
+h2{
+    text-align: center;
+    font-size: 30px;
 }

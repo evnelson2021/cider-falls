@@ -1,6 +1,7 @@
 import { getServices } from "./database.js";
 import { getAreas } from "./database.js";
 import { getAreaServices } from "./database.js";
+// import { areaList } from "./Areas.js"
 
 const areas = getAreas()
 const services = getServices()
@@ -18,45 +19,75 @@ const areaServices = getAreaServices()
 //     }
 // }
 
-
+export const ServiceList = () => {
+    let servicesList = `Park services:`
+    for (const service of services) {
+        servicesList += `<item id="service--${service.id}"> ${service.name}. `
+    }
+    servicesList += `</item>`
+    return servicesList
+}
 
 
 export const displayAreaServices = () =>{
-    let servicesHTML = `<article class="all-areas"><div class="each-item"><ul>`
+    let servicesHTML = ``
     for (const area of areas){
-        servicesHTML += `<h2 class="area-titles">${area.title}</h2></n>
-                        </t><header>Services Offered:</header></n>`
-        // servicesHTML += `<div class="area--${area.id}">${area.title}</div>`
+        servicesHTML += `<article class="each-area"><h3 id="areaCount--${area.id}">${area.title}</h3></n>
+                        <header>Services Offered: </header> <ul>`
         for (const areaService of areaServices){
             if (area.id === areaService.areaId){
                 for(const service of services){
                     if (service.id === areaService.serviceId){
-                        // servicesHTML += `<li class="service--${service.id}">${service.name}</li>`
                         servicesHTML += `</t><li>${service.name}</li>`
                     }
                 }
             }
         }
+        servicesHTML += `</ul>`
+        servicesHTML += `</article>`
     }
-    servicesHTML += `</ul></div></article>`
     return servicesHTML
 }
 
+const filterServicesbyArea = (p) => {
+    const matches = []
+    for (const match of areaServices){
+        if (match.serviceId === p){
+            matches.push(match)
+        }
+    }
+    return matches
+}
 
-// export const displayAreaServices = () =>{
-//     let servicesHTML = "<ul>"
-//     for (const area of areas){
-//         // servicesHTML += `<div class="area--${area.id}">${area.title}</div>`
-//         for (const areaService of areaServices){
-//             for(const service of services){
-//                 if (area.id === areaServices.areaId)
-//                 if (service.id === areaService.serviceId){
-//                     // servicesHTML += `<li class="service--${service.id}">${service.name}</li>`
-//                     servicesHTML += `<li>${service.name}</li>`
-//                 }
-//             }
-//         }
-//     }
-//     servicesHTML += `</ul>`
-//     return servicesHTML
-// }
+const assignedAreaNames = (filterService) => {
+    let serviceLocation = ``
+    // iterate serviceId to match parkAreaId
+    for (const area of areas) {
+        for (const taco of  filterService){
+        if (taco.areaId === area.id) {
+            serviceLocation += `${area.title}. `
+        }
+    }
+}
+    return serviceLocation
+}
+
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("service")) {
+            const [,serviceId] = itemClicked.id.split("--")
+
+            for (const service of services) {
+                if (service.id === parseInt(serviceId)) {
+                    const matched = filterServicesbyArea(parseInt(serviceId))
+                    const area = assignedAreaNames(matched)
+                    // console.log(areas)
+                    window.alert(`${service.name} is available in ${area}`)
+                }
+            }
+        }
+    }
+)

@@ -2,6 +2,7 @@
 import { displayGuests } from "./Guests.js";
 // import {displayAreas} from "./Areas.js"
 import { displayAreaServices } from "./Services.js";
+import { ServiceList } from "./Services.js";
 
 // const showMe = displayAreaServices()
 // console.log(showMe)
@@ -10,16 +11,18 @@ const mainContainer = document.querySelector("#wholePage")
 
 const applicationHTML = `
 <article class="asides">
+<div class="park-services">${ServiceList()}</div>   
+    <h2>Areas</h2>
 
-    <section class= "left-areas">
-        <h2>Areas</h2>
+<section class= "left-areas">
         <div class="area-items">${displayAreaServices()}</div>
     </section> 
 
     <section class="right-guests">
-    <h2>Guests</h2>
+    <h2 class="guests">Guests</h2>
     ${displayGuests()}
     </section>
+</article>
 `
 
 mainContainer.innerHTML = applicationHTML   
